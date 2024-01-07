@@ -54,47 +54,7 @@ function operate(a, operator, b) {
 }
 operate(a, operator, b)
 
-// const one = document.querySelector(".one");
-// one.addEventListener("click", displayValue);
 
-// const two = document.querySelector(".two");
-// two.addEventListener("click", displayValue);
-
-// const three = document.querySelector(".three");
-// three.addEventListener("click", displayValue);
-
-// const one = document.querySelector(".one");
-// one.addEventListener("click", displayValue);
-
-// const one = document.querySelector(".one");
-// one.addEventListener("click", displayValue);
-
-// const one = document.querySelector(".one");
-// one.addEventListener("click", displayValue);
-
-// const one = document.querySelector(".one");
-// one.addEventListener("click", displayValue);
-
-// const one = document.querySelector(".one");
-// one.addEventListener("click", displayValue);
-
-// const one = document.querySelector(".one");
-// one.addEventListener("click", displayValue);
-
-// const one = document.querySelector(".one");
-// one.addEventListener("click", displayValue);
-
-// const one = document.querySelector(".one");
-// one.addEventListener("click", displayValue);
-
-// const one = document.querySelector(".one");
-// one.addEventListener("click", displayValue);
-
-// const one = document.querySelector(".one");
-// one.addEventListener("click", displayValue);
-
-// const one = document.querySelector(".one");
-// one.addEventListener("click", displayValue);
 
 const buttons = document.querySelectorAll("button");
 
