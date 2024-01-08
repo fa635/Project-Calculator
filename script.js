@@ -25,28 +25,31 @@ let a = " ";
 let b = " ";
 let operator = " ";
 
+let  e = " ";
+let array;
 
 
-function operate(a, operator, b) {
+
+function operate() {
     // a = +prompt("a");
     // operator = prompt("operator")
     // b = +prompt("b");
-    if (operator === "+") {
+    if (e.includes("+")) {
         console.log(add(a, b))
 
     }
 
-    if (operator === "-") {
+    if (e.includes("-")) {
         console.log(subtract(a, b))
 
     }
 
-    if (operator === "*") {
+    if (e.includes("*")) {
         console.log(multiply(a, b))
 
     }
 
-    if (operator === "/") {
+    if (e.includes("/")) {
         console.log(divide(a, b))
 
     }
@@ -56,7 +59,7 @@ operate(a, operator, b)
 
 
 
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".parts");
 
 buttons.forEach(button =>{
     button.addEventListener("click", function(){
@@ -64,8 +67,7 @@ buttons.forEach(button =>{
     });
 });
 
-let  e = " ";
-let array;
+
 
 function displayValue(btn) {
     // const buttons = document.querySelectorAll(".one");
@@ -137,5 +139,8 @@ function displayValue(btn) {
 //assign btn to a,b and operator ?
 
   
+
+const equal = document.querySelector(".equal");
+equal.addEventListener("click", operate);
   
   
