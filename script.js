@@ -21,9 +21,9 @@ const divide = function(a, b) {
 
 
 
-let a = 0;
-let b = 0;
-let operator = "+" || "-" || "*" ||  "/";
+let a = " ";
+let b = " ";
+let operator = " ";
 
 
 
@@ -64,14 +64,77 @@ buttons.forEach(button =>{
     });
 });
 
+let  e = " ";
+let array;
 
 function displayValue(btn) {
     // const buttons = document.querySelectorAll(".one");
 
     const display = document.querySelector(".display");
-    display.textContent = btn;
+    
 
+
+    if (e === " ") {
+        e = btn;
+        display.textContent = e;
+    }
+    else {
+        e = e + btn;
+        display.textContent = e;
+    }
+
+    if (e.includes("+")) {
+        array = e.split("+")
+    }
+    else if (e.includes("-")) {
+        array = e.split("-")
+    }
+    else if (e.includes("*")) {
+        array = e.split("*")
+    }
+    else if (e.includes("/")) {
+        array = e.split("/")
+    }
+
+    if (array !== undefined) {
+        a = array[0];
+        b = array[1];
+    }
+
+    // a = array[0];
+    // b = array[1];
+
+
+
+    
+
+    // if (a === " ") {
+    //     a = btn;
+    // }
+    // else if (btn !== "+" && btn !== "-" && btn !== "*" && btn !== "/" && operator === " ") {
+    //     a = a + btn;
+
+    // }
+    // else if (btn === "+" || btn === "-" || btn === "*" || btn === "/") {
+    //     operator = btn;
+    // }
+    // else if (a !== " " && operator !== " " && b === " ") {
+    //     b = btn;
+    // }
+    // else if (b !== " ") {
+    //     b = b + btn;
+    // }
+
+
+
+    
+
+    
+
+    //if (btn === "+" || btn === "-" || btn === "*" || btn === "/")
 }
+
+//assign btn to a,b and operator ?
 
   
   
