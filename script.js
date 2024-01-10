@@ -1,32 +1,41 @@
 const add = function(a, b) {
-    return a + b
-      
+    total = a + b;
+    return total
 };
   
 const subtract = function(a, b) {
-    return a - b
+    total = a - b;
+    return total
 };
   
   
 const multiply = function(a, b) {
-    return a * b
+    total = a * b;
+    return total
   
 };
 
 
 const divide = function(a, b) {
-    return a / b
+    total = a / b;
+    return total
   
 };
 
 
 
-let a = " ";
-let b = " ";
+let a = 0;
+let b = 0;
 let operator = " ";
 
 let  e = " ";
 let array;
+
+let total = 0;
+
+//let clicked = false;
+
+
 
 
 
@@ -34,28 +43,50 @@ function operate() {
     // a = +prompt("a");
     // operator = prompt("operator")
     // b = +prompt("b");
+
+    const display = document.querySelector(".display");
+
+    if (e.slice(-1) === "+" || e.slice(-1) === "-" || e.slice(-1) === "*" || e.slice(-1) === "/") {
+        e = e.slice(0, -1);
+
+
+    }
+
+   
+
+
     if (e.includes("+")) {
-        console.log(add(a, b))
+        console.log(add(a, b));
+        display.textContent = total;
+        e = total;
 
     }
-
-    if (e.includes("-")) {
-        console.log(subtract(a, b))
-
-    }
-
-    if (e.includes("*")) {
-        console.log(multiply(a, b))
+    else if (e.includes("-")) {
+        console.log(subtract(a, b));
+        display.textContent = total;
+        e = total;
 
     }
+    else if (e.includes("*")) {
+        console.log(multiply(a, b));
+        display.textContent = total;
+        e = total;
 
-    if (e.includes("/")) {
-        console.log(divide(a, b))
+    }
+    else if (e.includes("/")) {
+        console.log(divide(a, b));
+        display.textContent = total;
+        e = total;
 
     }
     
 }
 operate(a, operator, b)
+
+
+
+
+
 
 
 
@@ -80,28 +111,140 @@ function displayValue(btn) {
         e = btn;
         display.textContent = e;
     }
-    else {
+    else if (e !== " ") {
         e = e + btn;
         display.textContent = e;
     }
 
-    if (e.includes("+")) {
-        array = e.split("+")
-    }
-    else if (e.includes("-")) {
-        array = e.split("-")
-    }
-    else if (e.includes("*")) {
-        array = e.split("*")
-    }
-    else if (e.includes("/")) {
-        array = e.split("/")
+    
+
+    if (e.slice(-1) === "+" || e.slice(-1) === "-" || e.slice(-1) === "*" || e.slice(-1) === "/") {
+
+        
+        if (a !== 0 && b !== 0) {
+
+            if (total === 0) {
+                operate();
+                e = total + btn;
+                display.textContent = e;
+            }
+            else if (a === total) {
+                operate();
+                e = total + btn;
+                display.textContent = e;
+            }
+            // else if (array[1] !== "" && b === +array[1]) {
+            //     operate();
+            //     e = total + btn;
+            //     display.textContent = e;
+            // }
+
+
+
+
+            // if  eaary 1 is not "" and b === array 1
+            
+            //a !== 0 && b !== 0
+
+            //if the avant dernier of e is equal to b
+            //+e.slice(-2, -1) === array[1]
+
+            //e.split(/(+|-|/|*)/ a === e.split(/(+|-|/|*)/[0] && b === e.split(/(+|-|/|*)/[1])
+            // 
+
+            
+            
+        }
+        // else if (clicked === true) {
+        //     e = e;
+        //     display.textContent = e;
+        // }
+
     }
 
-    if (array !== undefined) {
-        a = array[0];
-        b = array[1];
+    //fix the equal thing where the total part gets calculated into the e. Think what s the difference between them a their respective stages and place a if statement
+    
+    // if (a === e.split(/[+-\/*]+/)[0]) {
+    //     operate();
+    //     e = total + btn;t 
+    //     display.textContent = e;
+    // }
+
+
+    // && b === e.split(/[+-\/*]+/)[1].slice(-1)
+
+    // if (e !== " ") {
+    //     e = e + btn;
+    //     display.textContent = e;
+    // }
+
+    // if (total !== 0) {
+    //     if (a !== 0 && b !== 0) {
+    //     operate();
+    //     e = total + e.slice(-1);
+    //     }
+    // }
+
+    
+    if (e.includes("+")) {
+        array = e.split(/\+(.*)/s);
+        a = +array[0];
+        b = +array[1];
     }
+    else if (e.includes("-")) {
+        array = e.split(/-(.*)/s);
+        a = +array[0];
+        b = +array[1];
+    }
+    else if (e.includes("*")) {
+        array = e.split(/\*(.*)/s);
+        a = +array[0];
+        b = +array[1];
+    }
+    else if (e.includes("/")) {
+        array = e.split(/\/(.*)/s)
+        a = +array[0];
+        b = +array[1];
+    }
+
+    
+    
+
+    
+
+
+    if (e.slice(-1) === "+" || e.slice(-1) === "-" || e.slice(-1) === "*" || e.slice(-1) === "/") {
+        if (array[1].includes("+") || array[1].includes("-") || array[1].includes("*") || array[1].includes("/")) {
+        b = +array[1].slice(0, -1);
+
+        operate();
+
+        e = total + btn;
+        display.textContent = e;
+
+      
+    
+        }
+    }
+
+
+
+    
+
+
+
+    // i need a way to make it execute the operation as soon as it has two values so that solution can be reassigned to a or array[0]
+
+    // if (array !== undefined) {
+    //     a = +array[0];
+    //     b = +array[1];
+    // }
+
+    // if (e.includes("+") && e.includes("-")) {
+    //     a = a + b
+    // }
+
+    
 
     // a = array[0];
     // b = array[1];
@@ -141,6 +284,11 @@ function displayValue(btn) {
   
 
 const equal = document.querySelector(".equal");
-equal.addEventListener("click", operate);
+equal.addEventListener("click", function() {
+    operate();
+    // clicked = true;
+});
+
+
   
   
