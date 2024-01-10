@@ -290,5 +290,18 @@ equal.addEventListener("click", function() {
 });
 
 
+const clear = document.querySelector(".clear");
+clear.addEventListener("click", wipeScreen);
+
+function wipeScreen() {
+
+    const display = document.querySelector(".display");
+
+    e = " ";
+    display.textContent = e;
+    
+}
+
+
   
   
